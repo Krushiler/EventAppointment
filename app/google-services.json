@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "123032725145",
+    "project_id": "eventappointment-38b9e",
+    "storage_bucket": "eventappointment-38b9e.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:123032725145:android:d897e703ab5401523dfa08",
+        "android_client_info": {
+          "package_name": "com.krushiler.eventappointment"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "123032725145-9lpacclpi7ialrnfr14f496hggrn35n8.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD7NbuN8OrR7iCwfffCNfszG8zvwsL1eUM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "123032725145-9lpacclpi7ialrnfr14f496hggrn35n8.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
