@@ -2,6 +2,7 @@ package com.krushiler.eventappointment.data.repository
 
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
+import com.google.firebase.auth.UserProfileChangeRequest
 import com.krushiler.eventappointment.data.model.AppException
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
@@ -16,6 +17,18 @@ class AuthRepository(private val auth: FirebaseAuth) {
         auth.addAuthStateListener { authState ->
             _user.update { authState.currentUser }
         }
+    }
+
+    fun logout() {
+        auth.signOut()
+    }
+
+    suspend fun changeProfile(name: String) {
+        auth.currentUser?.updateProfile(
+            UserProfileChangeRequest.Builder().apply {
+                displayName = name
+            }.build()
+        )?.await()
     }
 
     suspend fun login(email: String, password: String) {
@@ -35,6 +48,11 @@ class AuthRepository(private val auth: FirebaseAuth) {
             if (result.user == null) {
                 throw AppException("Authentication failed")
             }
+            result.user?.updateProfile(
+                UserProfileChangeRequest.Builder().apply {
+                    displayName = email
+                }.build()
+            )?.await()
         } catch (e: Exception) {
             throw AppException("Something went wrong")
         }

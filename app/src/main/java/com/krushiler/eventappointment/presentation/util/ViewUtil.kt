@@ -1,5 +1,6 @@
 package com.krushiler.eventappointment.presentation.util
 
+import android.view.View
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.lifecycleScope
@@ -13,4 +14,8 @@ fun <T> LifecycleOwner.collectFlow(flow: Flow<T>, onData: (data: T) -> Unit) {
             flow.collect(onData)
         }
     }
+}
+
+fun View.setVisible(visible: Boolean) {
+    visibility = if (visible) View.VISIBLE else View.GONE
 }
