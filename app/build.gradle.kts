@@ -43,6 +43,8 @@ dependencies {
     implementation(libs.lifecycle.livedata.ktx)
     implementation(libs.lifecycle.viewmodel.ktx)
 
+    implementation(libs.adapterdelegates4.kotlin.dsl.viewbinding)
+
     val koin_version = "3.5.6"
     implementation(platform("io.insert-koin:koin-bom:$koin_version"))
     implementation("io.insert-koin:koin-core")

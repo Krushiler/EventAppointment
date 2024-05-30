@@ -1,4 +1,5 @@
 [versions]
+adapterdelegates4-kotlin-dsl-viewbinding = "4.3.2"
 agp = "8.1.1"
 navigation-fragment-ktx = "2.7.7"
 org-jetbrains-kotlin-android = "1.9.0"
@@ -15,6 +16,7 @@ lifecycle-viewmodel-ktx = "2.8.0"
 viewbindingpropertydelegate-noreflection = "1.5.9"
 
 [libraries]
+adapterdelegates4-kotlin-dsl-viewbinding = { module = "com.hannesdorfmann:adapterdelegates4-kotlin-dsl-viewbinding", version.ref = "adapterdelegates4-kotlin-dsl-viewbinding" }
 androidx-navigation-fragment-ktx = { module = "androidx.navigation:navigation-fragment-ktx", version.ref = "navigation-fragment-ktx" }
 androidx-navigation-ui-ktx = { module = "androidx.navigation:navigation-ui-ktx", version.ref = "navigation-fragment-ktx" }
 core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "core-ktx" }

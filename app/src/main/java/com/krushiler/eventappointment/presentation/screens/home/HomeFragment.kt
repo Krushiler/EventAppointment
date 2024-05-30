@@ -18,8 +18,6 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         navController = binding.homeNavigationContainer.getFragment<NavHostFragment>().navController
-        navController.navigate(R.id.profileFragment)
-
         binding.navigationBar.setupWithNavController(navController)
     }
 }
