@@ -1,5 +1,6 @@
 package com.krushiler.eventappointment.di
 
+import com.krushiler.eventappointment.presentation.screens.events.EventsViewModel
 import com.krushiler.eventappointment.presentation.screens.login.LoginViewModel
 import com.krushiler.eventappointment.presentation.screens.main.MainViewModel
 import com.krushiler.eventappointment.presentation.screens.profile.ProfileViewModel
@@ -10,4 +11,5 @@ val viewModelModule = module {
     viewModel { LoginViewModel(get()) }
     viewModel { MainViewModel(get()) }
     viewModel { ProfileViewModel(get()) }
+    viewModel { EventsViewModel(get()) }
 }

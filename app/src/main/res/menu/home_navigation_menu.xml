@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/eventsFragment"
+        android:icon="@drawable/calendar_today_24px"
+        android:title="@string/events" />
+    <item
+        android:id="@+id/profileFragment"
+        android:icon="@drawable/account_circle_24px"
+        android:title="@string/profile" />
+</menu>

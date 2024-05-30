@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <item
         android:id="@+id/action_logout"
-        app:showAsAction="always"
-        android:icon="@drawable/ic_logout"
-        android:title="@string/logout" />
+        android:icon="@drawable/logout_24px"
+        android:title="@string/logout"
+        app:showAsAction="always" />
 </menu>
