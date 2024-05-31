@@ -32,6 +32,14 @@ class EventDetailsFragment : Fragment(R.layout.fragment_event_details) {
         binding.toolbar.setNavigationOnClickListener {
             navController.popBackStack()
         }
+
+        binding.registerButton.setOnClickListener {
+            viewModel.register()
+        }
+
+        binding.unregisterButton.setOnClickListener {
+            viewModel.unregister()
+        }
     }
 
     private fun initObservers() {

@@ -10,12 +10,13 @@ import androidx.lifecycle.repeatOnLifecycle
 import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
 import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
 
 fun <T> LifecycleOwner.collectFlow(flow: Flow<T>, onData: (data: T) -> Unit) {
     lifecycleScope.launch {
         repeatOnLifecycle(Lifecycle.State.STARTED) {
-            flow.collect(onData)
+            flow.collectLatest(onData)
         }
     }
 }

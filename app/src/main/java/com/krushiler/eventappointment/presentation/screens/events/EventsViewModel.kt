@@ -8,6 +8,7 @@ import kotlinx.coroutines.flow.MutableSharedFlow
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asSharedFlow
 import kotlinx.coroutines.flow.asStateFlow
+import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
 
@@ -23,14 +24,22 @@ class EventsViewModel(private val eventsRepository: EventsRepository) : ViewMode
 
     init {
         loadEvents()
+        watchEvents()
+    }
+
+    private fun watchEvents() {
+        viewModelScope.launch {
+            eventsRepository.events.collectLatest { events ->
+                _eventsState.update { events }
+            }
+        }
     }
 
     private fun loadEvents() {
         viewModelScope.launch {
             _loadingState.update { true }
             try {
-                val events = eventsRepository.getEvents()
-                _eventsState.update { events }
+                eventsRepository.getEvents()
             } catch (e: Exception) {
                 _errorFlow.emit(e.message ?: "Something went wrong")
             }

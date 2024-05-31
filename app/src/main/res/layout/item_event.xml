@@ -55,5 +55,16 @@
             app:layout_constraintTop_toBottomOf="@id/description"
             tools:text="Олег Петрович" />
 
+        <TextView
+            android:id="@+id/registered_message"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="@string/event_registered_message"
+            android:textAppearance="@style/TextAppearance.Material3.TitleSmall"
+            android:textColor="@color/material_dynamic_primary50"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/owner" />
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 </com.google.android.material.card.MaterialCardView>

@@ -82,5 +82,6 @@ fun eventsAdapterDelegate(onItemClicked: (Event) -> Unit) =
             binding.description.text = item.description
             binding.date.text = SimpleDateFormat("dd/MM/yyyy", Locale.getDefault()).format(item.date)
             binding.owner.text = item.owner
+            binding.registeredMessage.setVisible(item.isMember)
         }
     }

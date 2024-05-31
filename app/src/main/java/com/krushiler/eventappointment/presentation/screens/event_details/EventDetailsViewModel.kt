@@ -31,6 +31,34 @@ class EventDetailsViewModel(
         loadEvent()
     }
 
+    fun register() {
+        val event = _eventState.value ?: return
+        viewModelScope.launch {
+            _loadingState.update { true }
+            try {
+                eventsRepository.register(event.id)
+                _eventState.update { it?.copy(isMember = true) }
+            } catch (e: Exception) {
+                _errorFlow.emit(e.message ?: "Something went wrong")
+            }
+            _loadingState.update { false }
+        }
+    }
+
+    fun unregister() {
+        val event = _eventState.value ?: return
+        viewModelScope.launch {
+            _loadingState.update { true }
+            try {
+                eventsRepository.unregister(event.id)
+                _eventState.update { it?.copy(isMember = false) }
+            } catch (e: Exception) {
+                _errorFlow.emit(e.message ?: "Something went wrong")
+            }
+            _loadingState.update { false }
+        }
+    }
+
     private fun loadEvent() {
         viewModelScope.launch {
             _loadingState.update { true }
