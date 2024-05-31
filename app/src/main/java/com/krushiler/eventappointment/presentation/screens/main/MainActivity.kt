@@ -1,6 +1,7 @@
 package com.krushiler.eventappointment.presentation.screens.main
 
 import android.os.Bundle
+import androidx.activity.OnBackPressedCallback
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.NavController
 import androidx.navigation.NavOptions
@@ -21,6 +22,18 @@ class MainActivity : AppCompatActivity(R.layout.activity_main) {
         super.onCreate(savedInstanceState)
         navController = binding.rootNavigationContainer.getFragment<NavHostFragment>().navController
 
+        val callback = object : OnBackPressedCallback(true) {
+            override fun handleOnBackPressed() {
+                navController.popBackStack()
+            }
+        }
+
+        collectFlow(navController.currentBackStack) {
+            callback.isEnabled = navController.previousBackStackEntry != null
+        }
+
+        onBackPressedDispatcher.addCallback(owner = this, callback)
+
         collectFlow(viewModel.authState) {
             if (!it || navController.currentDestination?.id == R.id.loginFragment) {
                 navController.popBackStack()
@@ -28,8 +41,8 @@ class MainActivity : AppCompatActivity(R.layout.activity_main) {
                     if (it) R.id.homeFragment else R.id.loginFragment,
                     args = null,
                     navOptions = NavOptions.Builder().apply {
-                        setEnterAnim(com.google.android.material.R.anim.abc_fade_in)
-                        setExitAnim(com.google.android.material.R.anim.abc_fade_out)
+                        setEnterAnim(R.anim.slide_in_right)
+                        setExitAnim(R.anim.slide_out_left)
                     }.build()
                 )
             }

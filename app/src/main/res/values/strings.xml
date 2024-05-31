@@ -9,4 +9,7 @@
     <string name="name">Name</string>
     <string name="save">Save</string>
     <string name="events">Events</string>
+    <string name="unregister">Unregister</string>
+    <string name="event">Event</string>
+    <string name="event_registered_message">You are registered for this event</string>
 </resources>
