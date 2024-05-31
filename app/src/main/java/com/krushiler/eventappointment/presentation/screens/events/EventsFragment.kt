@@ -3,6 +3,7 @@ package com.krushiler.eventappointment.presentation.screens.events
 import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.Fragment
+import androidx.navigation.NavController
 import androidx.recyclerview.widget.DiffUtil
 import by.kirich1409.viewbindingdelegate.viewBinding
 import com.google.android.material.snackbar.Snackbar
@@ -13,6 +14,7 @@ import com.krushiler.eventappointment.data.model.Event
 import com.krushiler.eventappointment.databinding.FragmentEventsBinding
 import com.krushiler.eventappointment.databinding.ItemEventBinding
 import com.krushiler.eventappointment.presentation.util.collectFlow
+import com.krushiler.eventappointment.presentation.util.findNavControllerById
 import com.krushiler.eventappointment.presentation.util.setVisible
 import org.koin.androidx.viewmodel.ext.android.viewModel
 import java.text.SimpleDateFormat
@@ -32,11 +34,19 @@ class EventsFragment : Fragment(R.layout.fragment_events) {
                 return oldItem == newItem
             }
         },
-        eventsAdapterDelegate { },
+        eventsAdapterDelegate {
+            navController.navigate(
+                R.id.action_homeFragment_to_eventDetailsFragment,
+                args = Bundle().apply { putString("id", it.id) }
+            )
+        },
     )
+
+    private lateinit var navController: NavController
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        navController = findNavControllerById(R.id.root_navigation_container)
         initViews()
         initObservers()
     }
