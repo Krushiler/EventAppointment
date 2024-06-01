@@ -23,10 +23,29 @@ android {
         viewBinding = true
     }
 
+    signingConfigs {
+        getByName("debug") {
+            storeFile = file("key/release.keystore")
+            storePassword = "android"
+            keyAlias = "android"
+            keyPassword = "android"
+        }
+        create("release") {
+            storeFile = file("key/release.keystore")
+            storePassword = "android"
+            keyAlias = "android"
+            keyPassword = "android"
+        }
+    }
+
     buildTypes {
         release {
+            signingConfig = signingConfigs.getByName("release")
             isMinifyEnabled = false
             proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro")
+        }
+        debug {
+            signingConfig = signingConfigs.getByName("debug")
         }
     }
     compileOptions {
@@ -44,6 +63,7 @@ dependencies {
     implementation(libs.lifecycle.viewmodel.ktx)
 
     implementation(libs.adapterdelegates4.kotlin.dsl.viewbinding)
+    implementation(libs.googleid)
 
     val koin_version = "3.5.6"
     implementation(platform("io.insert-koin:koin-bom:$koin_version"))
@@ -57,6 +77,11 @@ dependencies {
     implementation(platform("com.google.firebase:firebase-bom:33.0.0"))
     implementation("com.google.firebase:firebase-auth-ktx")
     implementation("com.google.firebase:firebase-firestore-ktx")
+    implementation(libs.play.services.auth)
+
+    implementation(libs.androidx.credentials)
+    implementation(libs.androidx.credentials.play.services.auth)
+
 
     implementation(libs.androidx.navigation.fragment.ktx)
     implementation(libs.androidx.navigation.ui.ktx)

@@ -12,4 +12,6 @@
     <string name="unregister">Unregister</string>
     <string name="event">Event</string>
     <string name="event_registered_message">You are registered for this event</string>
+    <string name="google_sign_in">Google Sign In</string>
+    <string name="credentials_client_id" translatable="false">123032725145-9lpacclpi7ialrnfr14f496hggrn35n8.apps.googleusercontent.com</string>
 </resources>

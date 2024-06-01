@@ -14,6 +14,14 @@
       },
       "oauth_client": [
         {
+          "client_id": "123032725145-irl6qu2b8t4ifs03saojltlkqius0el2.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.krushiler.eventappointment",
+            "certificate_hash": "7a0bc4eb841d5c0ce55810ef55eebe6cc5fc7948"
+          }
+        },
+        {
           "client_id": "123032725145-9lpacclpi7ialrnfr14f496hggrn35n8.apps.googleusercontent.com",
           "client_type": 3
         }

@@ -8,6 +8,7 @@ import androidx.navigation.NavOptions
 import androidx.navigation.fragment.NavHostFragment
 import by.kirich1409.viewbindingdelegate.viewBinding
 import com.krushiler.eventappointment.R
+import com.krushiler.eventappointment.data.model.AuthState
 import com.krushiler.eventappointment.databinding.ActivityMainBinding
 import com.krushiler.eventappointment.presentation.util.collectFlow
 import org.koin.androidx.viewmodel.ext.android.viewModel
@@ -35,10 +36,11 @@ class MainActivity : AppCompatActivity(R.layout.activity_main) {
         onBackPressedDispatcher.addCallback(owner = this, callback)
 
         collectFlow(viewModel.authState) {
-            if (!it || navController.currentDestination?.id == R.id.loginFragment) {
+            if (it == AuthState.Loading) return@collectFlow
+            if (it == AuthState.NotSignedIn || navController.currentDestination?.id == R.id.loginFragment) {
                 navController.popBackStack()
                 navController.navigate(
-                    if (it) R.id.homeFragment else R.id.loginFragment,
+                    if (it == AuthState.SignedIn) R.id.homeFragment else R.id.loginFragment,
                     args = null,
                     navOptions = NavOptions.Builder().apply {
                         setEnterAnim(R.anim.slide_in_right)

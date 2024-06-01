@@ -1,6 +1,8 @@
 [versions]
 adapterdelegates4-kotlin-dsl-viewbinding = "4.3.2"
 agp = "8.1.1"
+credentials = "1.2.2"
+firebase-ui-auth = "7.2.0"
 navigation-fragment-ktx = "2.7.7"
 org-jetbrains-kotlin-android = "1.9.0"
 core-ktx = "1.9.0"
@@ -13,13 +15,17 @@ constraintlayout = "2.1.4"
 legacy-support-v4 = "1.0.0"
 lifecycle-livedata-ktx = "2.8.0"
 lifecycle-viewmodel-ktx = "2.8.0"
+play-services-auth = "21.2.0"
 viewbindingpropertydelegate-noreflection = "1.5.9"
 
 [libraries]
 adapterdelegates4-kotlin-dsl-viewbinding = { module = "com.hannesdorfmann:adapterdelegates4-kotlin-dsl-viewbinding", version.ref = "adapterdelegates4-kotlin-dsl-viewbinding" }
+androidx-credentials-play-services-auth = { module = "androidx.credentials:credentials-play-services-auth", version.ref = "credentials" }
+androidx-credentials = { module = "androidx.credentials:credentials", version.ref = "credentials" }
 androidx-navigation-fragment-ktx = { module = "androidx.navigation:navigation-fragment-ktx", version.ref = "navigation-fragment-ktx" }
 androidx-navigation-ui-ktx = { module = "androidx.navigation:navigation-ui-ktx", version.ref = "navigation-fragment-ktx" }
 core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "core-ktx" }
+firebase-ui-auth = { module = "com.firebaseui:firebase-ui-auth", version.ref = "firebase-ui-auth" }
 junit = { group = "junit", name = "junit", version.ref = "junit" }
 androidx-test-ext-junit = { group = "androidx.test.ext", name = "junit", version.ref = "androidx-test-ext-junit" }
 espresso-core = { group = "androidx.test.espresso", name = "espresso-core", version.ref = "espresso-core" }
@@ -29,7 +35,9 @@ constraintlayout = { group = "androidx.constraintlayout", name = "constraintlayo
 legacy-support-v4 = { group = "androidx.legacy", name = "legacy-support-v4", version.ref = "legacy-support-v4" }
 lifecycle-livedata-ktx = { group = "androidx.lifecycle", name = "lifecycle-livedata-ktx", version.ref = "lifecycle-livedata-ktx" }
 lifecycle-viewmodel-ktx = { group = "androidx.lifecycle", name = "lifecycle-viewmodel-ktx", version.ref = "lifecycle-viewmodel-ktx" }
+play-services-auth = { module = "com.google.android.gms:play-services-auth", version.ref = "play-services-auth" }
 viewbindingpropertydelegate-noreflection = { module = "com.github.kirich1409:viewbindingpropertydelegate-noreflection", version.ref = "viewbindingpropertydelegate-noreflection" }
+googleid = { group = "com.google.android.libraries.identity.googleid", name = "googleid", version = "1.1.0" }
 
 [plugins]
 com-android-application = { id = "com.android.application", version.ref = "agp" }
